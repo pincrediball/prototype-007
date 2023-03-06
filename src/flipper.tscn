@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjt65ebgf8vxg"]
+[gd_scene load_steps=3 format=3 uid="uid://cjt65ebgf8vxg"]
 
+[ext_resource type="Script" path="res://flipper.gd" id="1_011sv"]
 [ext_resource type="Texture2D" uid="uid://d2owmyb8iq41r" path="res://resources/flipper.png" id="1_rprij"]
 
 [node name="flipper" type="Node2D"]
+script = ExtResource("1_011sv")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+scale = Vector2(0.85, 0.85)
 motion_mode = 1
 platform_on_leave = 1
 
-[node name="Flipper" type="Sprite2D" parent="CharacterBody2D"]
+[node name="FlipperSprite" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(31, 0)
 texture = ExtResource("1_rprij")
 
