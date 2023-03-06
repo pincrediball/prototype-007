@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjt65ebgf8vxg"]
+
+[ext_resource type="Texture2D" uid="uid://d2owmyb8iq41r" path="res://resources/flipper.png" id="1_rprij"]
+
+[node name="flipper" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+motion_mode = 1
+platform_on_leave = 1
+
+[node name="Flipper" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(31, 0)
+texture = ExtResource("1_rprij")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+polygon = PackedVector2Array(-9, 6, -8, 8, -6, 10, 8, 9, 55, 5, 68, 4, 70, 2, 71, 0, 70, -3, 68, -5, 55, -6, 7.82178, -9.14522, -5, -10, -7, -9, -8, -8, -9, -7, -9, 0, -9, 3.78135)
