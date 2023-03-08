@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbtqaukcpqhws"]
+
+[ext_resource type="Texture2D" uid="uid://bilrjsuyk43ak" path="res://resources/DropTargetBumper.svg" id="1_tv332"]
+[ext_resource type="Texture2D" uid="uid://x3srnnt4sr05" path="res://resources/DropTarget.svg" id="2_00vr0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhxil"]
+size = Vector2(6, 23)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gktvr"]
+height = 74.0
+
+[node name="DropTargetsBank" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tv332")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(14, 24)
+texture = ExtResource("2_00vr0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(14, 0)
+texture = ExtResource("2_00vr0")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(14, -23)
+texture = ExtResource("2_00vr0")
+
+[node name="Target1Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target1Area2D"]
+position = Vector2(14, -23)
+shape = SubResource("RectangleShape2D_fhxil")
+
+[node name="Target1Area2D3" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target1Area2D3"]
+position = Vector2(14, 23)
+shape = SubResource("RectangleShape2D_fhxil")
+
+[node name="Target1Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target1Area2D2"]
+position = Vector2(14, 0)
+shape = SubResource("RectangleShape2D_fhxil")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_gktvr")

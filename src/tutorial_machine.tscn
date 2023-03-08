@@ -5,17 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://dd2k4pqg7xf4m" path="res://resources/blue-clouds.png" id="2_wu422"]
 [ext_resource type="Texture2D" uid="uid://6oy776i4w327" path="res://resources/tutorial-basic-box.png" id="3_odv6v"]
 [ext_resource type="Texture2D" uid="uid://cqa2o4njjmrcf" path="res://resources/Art.png" id="4_fq8qd"]
-[ext_resource type="Texture2D" uid="uid://dgynfem57lmja" path="res://resources/gate-mini.png" id="5_am1hb"]
+[ext_resource type="PackedScene" uid="uid://cbtqaukcpqhws" path="res://DropTargetsBank.tscn" id="5_biyfk"]
 [ext_resource type="Texture2D" uid="uid://dfashe5beym08" path="res://resources/flipper-guides.png" id="5_imbg8"]
 [ext_resource type="PackedScene" uid="uid://dbp2umeji431d" path="res://WallCorner.tscn" id="5_qlef3"]
+[ext_resource type="PackedScene" uid="uid://bd3v56y4614fq" path="res://Gate.tscn" id="6_2akvx"]
 [ext_resource type="PackedScene" uid="uid://dn6i5vporibtx" path="res://BumperPill.tscn" id="6_igtkp"]
 [ext_resource type="PackedScene" uid="uid://bxypil3nms1ja" path="res://BumperTriangle.tscn" id="6_kdmv7"]
 [ext_resource type="PackedScene" uid="uid://cjt65ebgf8vxg" path="res://flipper.tscn" id="8_718cf"]
 [ext_resource type="PackedScene" uid="uid://cgke5qt1db315" path="res://BumperCircular.tscn" id="9_kd80a"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6hqb"]
-radius = 5.0
-height = 50.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14pf7"]
 size = Vector2(106, 7)
@@ -57,82 +54,61 @@ texture = ExtResource("2_wu422")
 metadata/_edit_use_anchors_ = true
 
 [node name="Hero-art" type="Sprite2D" parent="BackgroundGroup"]
-position = Vector2(251, 429)
+position = Vector2(250, 400)
 texture = ExtResource("4_fq8qd")
 
 [node name="Components" type="StaticBody2D" parent="."]
 
+[node name="DropTargetsBank" parent="Components" instance=ExtResource("5_biyfk")]
+position = Vector2(613, 389)
+rotation = 0.825376
+
+[node name="Gates" type="CanvasGroup" parent="Components"]
+
+[node name="Gate" parent="Components/Gates" instance=ExtResource("6_2akvx")]
+position = Vector2(658, 205)
+
+[node name="Gate2" parent="Components/Gates" instance=ExtResource("6_2akvx")]
+position = Vector2(696, 205)
+
+[node name="Gate3" parent="Components/Gates" instance=ExtResource("6_2akvx")]
+position = Vector2(734, 205)
+
 [node name="WallCorners" type="CanvasGroup" parent="Components"]
 
 [node name="WallCorner" parent="Components/WallCorners" instance=ExtResource("5_qlef3")]
-position = Vector2(625, 199)
+position = Vector2(622, 170)
 rotation = 0.82269
 
 [node name="BumperTriangles" type="CanvasGroup" parent="Components"]
 
 [node name="BumperTriangle1" parent="Components/BumperTriangles" instance=ExtResource("6_kdmv7")]
-position = Vector2(663, 558)
+position = Vector2(662, 574)
 
 [node name="BumperTriangle2" parent="Components/BumperTriangles" instance=ExtResource("6_kdmv7")]
-position = Vector2(888, 558)
+position = Vector2(894, 575)
 scale = Vector2(-1, 1)
 
 [node name="BumperCirculars" type="CanvasGroup" parent="Components"]
 
 [node name="BumperCircular1" parent="Components/BumperCirculars" instance=ExtResource("9_kd80a")]
-position = Vector2(857, 302)
+position = Vector2(857, 274)
 
 [node name="BumperCircular2" parent="Components/BumperCirculars" instance=ExtResource("9_kd80a")]
-position = Vector2(918, 334)
+position = Vector2(916, 304)
 
 [node name="BumperCircular3" parent="Components/BumperCirculars" instance=ExtResource("9_kd80a")]
-position = Vector2(862, 365)
+position = Vector2(861, 336)
 
 [node name="BumperPills" type="CanvasGroup" parent="Components"]
 
 [node name="BumperPill" parent="Components/BumperPills" instance=ExtResource("6_igtkp")]
-position = Vector2(804, 398)
+position = Vector2(803, 380)
 rotation = -0.683071
 
 [node name="BumperPill2" parent="Components/BumperPills" instance=ExtResource("6_igtkp")]
-position = Vector2(950, 403)
+position = Vector2(948, 378)
 rotation = -2.40531
-
-[node name="Sprite2D" type="Sprite2D" parent="Components"]
-position = Vector2(678.5, 203)
-texture = ExtResource("5_am1hb")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components"]
-position = Vector2(653.5, 199)
-shape = SubResource("CapsuleShape2D_b6hqb")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Components"]
-position = Vector2(700.5, 199)
-shape = SubResource("CapsuleShape2D_b6hqb")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Components"]
-position = Vector2(787, 203)
-texture = ExtResource("5_am1hb")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Components"]
-position = Vector2(762, 199)
-shape = SubResource("CapsuleShape2D_b6hqb")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Components"]
-position = Vector2(809, 199)
-shape = SubResource("CapsuleShape2D_b6hqb")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Components"]
-position = Vector2(900, 203)
-texture = ExtResource("5_am1hb")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Components"]
-position = Vector2(875, 199)
-shape = SubResource("CapsuleShape2D_b6hqb")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Components"]
-position = Vector2(922, 199)
-shape = SubResource("CapsuleShape2D_b6hqb")
 
 [node name="Bounds" type="StaticBody2D" parent="."]
 z_index = 100
@@ -152,27 +128,25 @@ polygon = PackedVector2Array(4, 180, 8, 157, 17, 136, 27, 121, 37, 111, 49, 101,
 [node name="FlipperGuides" type="StaticBody2D" parent="."]
 
 [node name="Flipper-guides" type="Sprite2D" parent="FlipperGuides"]
-position = Vector2(777, 594)
+position = Vector2(777, 614)
 texture = ExtResource("5_imbg8")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlipperGuides"]
-visible = false
-position = Vector2(-0.700012, -3.70001)
+position = Vector2(-0.700012, 16.3)
 polygon = PackedVector2Array(596, 497, 596, 577, 702, 684, 702, 689, 697, 694, 691, 694, 581, 583, 581, 497, 584, 493, 593, 493)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="FlipperGuides"]
-visible = false
-position = Vector2(-0.700012, -3.70001)
+position = Vector2(-0.700012, 16.3)
 polygon = PackedVector2Array(848, 683, 847, 688, 854, 694, 859, 694, 969, 583, 968, 497, 965, 494, 957, 494, 954, 497, 954, 578)
 
 [node name="FlipperLeft" parent="." instance=ExtResource("8_718cf")]
-position = Vector2(707, 693)
+position = Vector2(707, 712)
 rotation = 0.698132
 max_angle = -45
 up_time = 0.043
 
 [node name="FlipperRight" parent="." instance=ExtResource("8_718cf")]
-position = Vector2(842, 694)
+position = Vector2(842, 713)
 rotation = 2.44346
 
 [node name="Drainage" type="Area2D" parent="."]

@@ -10,7 +10,7 @@ func _on_run_playbook_button_button_up():
 	get_tree().create_timer(0.35).timeout.connect(startFlipperRight)
 	var ball: RigidBody2D = ballScene.instantiate()
 	ball.position = Vector2(ballStartX, ballStartY)
-	ball.linear_velocity = Vector2(0, -1200)
+	ball.linear_velocity = Vector2(0, -1500)
 	add_child(ball)
 	
 func startFlipperLeft():
