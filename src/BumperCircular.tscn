@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgke5qt1db315"]
+
+[ext_resource type="Texture2D" uid="uid://c5u28dsjj2xv4" path="res://resources/BumperCircular.png" id="1_40k1g"]
+[ext_resource type="Script" path="res://BumperCircular.gd" id="1_f7f6p"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2538a"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2j0kx"]
+radius = 18.0
+
+[node name="BumperCircular" type="StaticBody2D" groups=["isBumperCircular"]]
+physics_material_override = SubResource("PhysicsMaterial_2538a")
+script = ExtResource("1_f7f6p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_40k1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2j0kx")
+
+[node name="Area2D" type="Area2D" parent="CollisionShape2D"]

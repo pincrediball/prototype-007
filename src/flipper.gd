@@ -24,7 +24,7 @@ func _physics_process(delta):
 		if time_moving > up_time:
 			is_going_up = false
 			time_moving = 0.0
-	
+
 	else:
 		$CharacterBody2D.rotation_degrees = max_angle * (1 - (time_moving / down_time))
 		if time_moving > down_time:
