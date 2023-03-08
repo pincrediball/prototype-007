@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://gnmm4d1otu1w"]
+[gd_scene load_steps=13 format=3 uid="uid://gnmm4d1otu1w"]
 
 [ext_resource type="Script" path="res://tutorial_machine.gd" id="1_dfw1k"]
 [ext_resource type="Texture2D" uid="uid://cpmih3n7px6yf" path="res://resources/bg-template.png" id="1_j4x0o"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cqa2o4njjmrcf" path="res://resources/Art.png" id="4_fq8qd"]
 [ext_resource type="Texture2D" uid="uid://dgynfem57lmja" path="res://resources/gate-mini.png" id="5_am1hb"]
 [ext_resource type="Texture2D" uid="uid://dfashe5beym08" path="res://resources/flipper-guides.png" id="5_imbg8"]
+[ext_resource type="PackedScene" uid="uid://dn6i5vporibtx" path="res://BumperPill.tscn" id="6_igtkp"]
 [ext_resource type="PackedScene" uid="uid://cjt65ebgf8vxg" path="res://flipper.tscn" id="8_718cf"]
 [ext_resource type="PackedScene" uid="uid://cgke5qt1db315" path="res://BumperCircular.tscn" id="9_kd80a"]
 
@@ -59,16 +60,26 @@ texture = ExtResource("4_fq8qd")
 
 [node name="Components" type="StaticBody2D" parent="."]
 
-[node name="Bumpers" type="CanvasGroup" parent="Components"]
+[node name="BumperCirculars" type="CanvasGroup" parent="Components"]
 
-[node name="BumperCircular1" parent="Components/Bumpers" instance=ExtResource("9_kd80a")]
+[node name="BumperCircular1" parent="Components/BumperCirculars" instance=ExtResource("9_kd80a")]
 position = Vector2(857, 302)
 
-[node name="BumperCircular2" parent="Components/Bumpers" instance=ExtResource("9_kd80a")]
+[node name="BumperCircular2" parent="Components/BumperCirculars" instance=ExtResource("9_kd80a")]
 position = Vector2(918, 334)
 
-[node name="BumperCircular3" parent="Components/Bumpers" instance=ExtResource("9_kd80a")]
+[node name="BumperCircular3" parent="Components/BumperCirculars" instance=ExtResource("9_kd80a")]
 position = Vector2(862, 365)
+
+[node name="BumperPills" type="CanvasGroup" parent="Components"]
+
+[node name="BumperPill" parent="Components/BumperPills" instance=ExtResource("6_igtkp")]
+position = Vector2(804, 398)
+rotation = -0.683071
+
+[node name="BumperPill2" parent="Components/BumperPills" instance=ExtResource("6_igtkp")]
+position = Vector2(950, 403)
+rotation = -2.40531
 
 [node name="Sprite2D" type="Sprite2D" parent="Components"]
 position = Vector2(674, 175)
@@ -121,18 +132,18 @@ polygon = PackedVector2Array(258, 798, 210, 798, 203, 776, 195, 773, 179, 765, 1
 [node name="Ceiling" type="CollisionPolygon2D" parent="Bounds"]
 polygon = PackedVector2Array(4, 180, 8, 157, 17, 136, 27, 121, 37, 111, 49, 101, 60, 93, 91, 76, 127, 62, 168, 53, 199, 48, 226, 46, 251, 46, 285, 47, 313, 50, 342, 55, 366, 61, 391, 69, 407, 75, 416.787, 79.8935, 429, 86, 435.728, 90.4855, 444, 96, 457, 106, 464, 112, 471, 119, 478, 127, 485, 138, 491, 151, 495, 167, 495, 182, 501, 182, 501, 167, 501, -2, 321.909, -3.41573, 139.939, -4.85423, -4, -5, -4, 180)
 
-[node name="FlipperGuides_StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="FlipperGuides" type="StaticBody2D" parent="."]
 
-[node name="Flipper-guides" type="Sprite2D" parent="FlipperGuides_StaticBody2D2"]
+[node name="Flipper-guides" type="Sprite2D" parent="FlipperGuides"]
 position = Vector2(777, 594)
 texture = ExtResource("5_imbg8")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlipperGuides_StaticBody2D2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlipperGuides"]
 visible = false
 position = Vector2(-0.700012, -3.70001)
 polygon = PackedVector2Array(596, 497, 596, 577, 702, 684, 702, 689, 697, 694, 691, 694, 581, 583, 581, 497, 584, 493, 593, 493)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="FlipperGuides_StaticBody2D2"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="FlipperGuides"]
 visible = false
 position = Vector2(-0.700012, -3.70001)
 polygon = PackedVector2Array(848, 683, 847, 688, 854, 694, 859, 694, 969, 583, 968, 497, 965, 494, 957, 494, 954, 497, 954, 578)
