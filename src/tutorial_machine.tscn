@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://gnmm4d1otu1w"]
+[gd_scene load_steps=15 format=3 uid="uid://gnmm4d1otu1w"]
 
 [ext_resource type="Script" path="res://tutorial_machine.gd" id="1_dfw1k"]
 [ext_resource type="Texture2D" uid="uid://cpmih3n7px6yf" path="res://resources/bg-template.png" id="1_j4x0o"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cqa2o4njjmrcf" path="res://resources/Art.png" id="4_fq8qd"]
 [ext_resource type="Texture2D" uid="uid://dgynfem57lmja" path="res://resources/gate-mini.png" id="5_am1hb"]
 [ext_resource type="Texture2D" uid="uid://dfashe5beym08" path="res://resources/flipper-guides.png" id="5_imbg8"]
+[ext_resource type="PackedScene" uid="uid://dbp2umeji431d" path="res://WallCorner.tscn" id="5_qlef3"]
 [ext_resource type="PackedScene" uid="uid://dn6i5vporibtx" path="res://BumperPill.tscn" id="6_igtkp"]
+[ext_resource type="PackedScene" uid="uid://bxypil3nms1ja" path="res://BumperTriangle.tscn" id="6_kdmv7"]
 [ext_resource type="PackedScene" uid="uid://cjt65ebgf8vxg" path="res://flipper.tscn" id="8_718cf"]
 [ext_resource type="PackedScene" uid="uid://cgke5qt1db315" path="res://BumperCircular.tscn" id="9_kd80a"]
 
@@ -60,6 +62,21 @@ texture = ExtResource("4_fq8qd")
 
 [node name="Components" type="StaticBody2D" parent="."]
 
+[node name="WallCorners" type="CanvasGroup" parent="Components"]
+
+[node name="WallCorner" parent="Components/WallCorners" instance=ExtResource("5_qlef3")]
+position = Vector2(625, 199)
+rotation = 0.82269
+
+[node name="BumperTriangles" type="CanvasGroup" parent="Components"]
+
+[node name="BumperTriangle1" parent="Components/BumperTriangles" instance=ExtResource("6_kdmv7")]
+position = Vector2(663, 558)
+
+[node name="BumperTriangle2" parent="Components/BumperTriangles" instance=ExtResource("6_kdmv7")]
+position = Vector2(888, 558)
+scale = Vector2(-1, 1)
+
 [node name="BumperCirculars" type="CanvasGroup" parent="Components"]
 
 [node name="BumperCircular1" parent="Components/BumperCirculars" instance=ExtResource("9_kd80a")]
@@ -82,39 +99,39 @@ position = Vector2(950, 403)
 rotation = -2.40531
 
 [node name="Sprite2D" type="Sprite2D" parent="Components"]
-position = Vector2(674, 175)
+position = Vector2(678.5, 203)
 texture = ExtResource("5_am1hb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Components"]
-position = Vector2(649, 171)
+position = Vector2(653.5, 199)
 shape = SubResource("CapsuleShape2D_b6hqb")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Components"]
-position = Vector2(696, 171)
+position = Vector2(700.5, 199)
 shape = SubResource("CapsuleShape2D_b6hqb")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Components"]
-position = Vector2(782.5, 175)
+position = Vector2(787, 203)
 texture = ExtResource("5_am1hb")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Components"]
-position = Vector2(757.5, 171)
+position = Vector2(762, 199)
 shape = SubResource("CapsuleShape2D_b6hqb")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Components"]
-position = Vector2(804.5, 171)
+position = Vector2(809, 199)
 shape = SubResource("CapsuleShape2D_b6hqb")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Components"]
-position = Vector2(895.5, 175)
+position = Vector2(900, 203)
 texture = ExtResource("5_am1hb")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Components"]
-position = Vector2(870.5, 171)
+position = Vector2(875, 199)
 shape = SubResource("CapsuleShape2D_b6hqb")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Components"]
-position = Vector2(917.5, 171)
+position = Vector2(922, 199)
 shape = SubResource("CapsuleShape2D_b6hqb")
 
 [node name="Bounds" type="StaticBody2D" parent="."]

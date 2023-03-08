@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxypil3nms1ja"]
+
+[ext_resource type="Texture2D" uid="uid://ge6g6shjkl3a" path="res://resources/BumperTriangle.svg" id="1_jkfff"]
+[ext_resource type="Script" path="res://BumperTriangle.gd" id="1_tucy6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o5ngk"]
+radius = 3.0
+height = 148.929
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_tucy6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jkfff")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-29, -74, -34, -70, -34, 12, 26, 74, 31, 74, 34, 69, 34, 63, -20, -69, -24, -71, -26, -74)
+
+[node name="SlingArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlingArea2D"]
+position = Vector2(6, -2)
+rotation = -0.388715
+shape = SubResource("CapsuleShape2D_o5ngk")

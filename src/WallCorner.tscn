@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbp2umeji431d"]
+
+[ext_resource type="Texture2D" uid="uid://cph4r55i45yd" path="res://resources/WallCorner.svg" id="1_0gxeg"]
+
+[node name="WallCorner" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.00108583
+texture = ExtResource("1_0gxeg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(3, -92, 1, -94, -4, -94, -17, -80, -26, -69, -36, -52, -44, -30, -44, -7, -40.4225, 3.33489, -35, 19, -25, 37, -13, 54, 7, 76, 23, 93, 25, 94, 29, 94, 33, 90, 33, 86, 15, 68, -3, 49, -19, 27, -26, 13, -30, 2, -32, -8, -32, -23, -29, -34, -26, -45, -18, -58, -7, -72, 2, -82, 5, -85, 5, -89)
