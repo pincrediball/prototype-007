@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o5ngk"]
 radius = 3.0
-height = 148.929
+height = 145.227
 
 [node name="StaticBody2D" type="StaticBody2D"]
 script = ExtResource("1_tucy6")
@@ -14,7 +14,7 @@ script = ExtResource("1_tucy6")
 texture = ExtResource("1_jkfff")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-29, -74, -34, -70, -34, 12, 26, 74, 31, 74, 34, 69, 34, 63, -20, -69, -24, -71, -26, -74)
+polygon = PackedVector2Array(-29, -74, -32, -73, -34, -70, -34, 12, 26, 74, 31, 74, 34, 69, 34, 63, -22, -67, -24, -71, -26, -73)
 
 [node name="SlingArea2D" type="Area2D" parent="."]
 
