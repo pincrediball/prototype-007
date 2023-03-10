@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://da7spg7dnnvun"]
+
+[ext_resource type="Texture2D" uid="uid://c5u28dsjj2xv4" path="res://resources/BumperCircular.png" id="1_60snu"]
+[ext_resource type="Script" path="res://ToolboxItem.gd" id="1_oldfp"]
+
+[sub_resource type="Theme" id="Theme_agn8s"]
+
+[node name="ToolboxItem" type="PanelContainer"]
+custom_minimum_size = Vector2(400, 80)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1200.0
+offset_bottom = -820.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oldfp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_agn8s")
+theme_override_constants/margin_left = 8
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Bumper (Circular)"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_60snu")
+expand_mode = 2
+stretch_mode = 3

@@ -1,0 +1,134 @@
+[gd_scene load_steps=14 format=3 uid="uid://dbsri2ld7ofa1"]
+
+[ext_resource type="Texture2D" uid="uid://cpmih3n7px6yf" path="res://resources/bg-template.png" id="1_hja4g"]
+[ext_resource type="Script" path="res://TutorialMachine.gd" id="1_tnjrv"]
+[ext_resource type="Texture2D" uid="uid://dd2k4pqg7xf4m" path="res://resources/blue-clouds.png" id="2_6r3gi"]
+[ext_resource type="Texture2D" uid="uid://cqa2o4njjmrcf" path="res://resources/Art.png" id="3_w81s5"]
+[ext_resource type="PackedScene" uid="uid://cbtqaukcpqhws" path="res://DropTargetsBank.tscn" id="4_a0lp0"]
+[ext_resource type="PackedScene" uid="uid://bd3v56y4614fq" path="res://Gate.tscn" id="5_oqg17"]
+[ext_resource type="PackedScene" uid="uid://dbp2umeji431d" path="res://WallCorner.tscn" id="6_56yyb"]
+[ext_resource type="PackedScene" uid="uid://bxypil3nms1ja" path="res://BumperTriangle.tscn" id="7_g4yvn"]
+[ext_resource type="PackedScene" uid="uid://dn6i5vporibtx" path="res://BumperPill.tscn" id="9_2akld"]
+[ext_resource type="Texture2D" uid="uid://6oy776i4w327" path="res://resources/tutorial-basic-box.png" id="10_j4sug"]
+[ext_resource type="Texture2D" uid="uid://dfashe5beym08" path="res://resources/flipper-guides.png" id="11_y88ts"]
+[ext_resource type="PackedScene" uid="uid://cjt65ebgf8vxg" path="res://flipper.tscn" id="12_gxj7l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14pf7"]
+size = Vector2(106, 10)
+
+[node name="TutorialMachine" type="Node2D"]
+script = ExtResource("1_tnjrv")
+
+[node name="BackgroundGroup" type="CanvasGroup" parent="."]
+
+[node name="WhiteRectangle" type="ColorRect" parent="BackgroundGroup"]
+offset_right = 500.0
+offset_bottom = 800.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PaperGrid" type="TextureRect" parent="BackgroundGroup"]
+offset_right = 500.0
+offset_bottom = 800.0
+texture = ExtResource("1_hja4g")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Clouds" type="TextureRect" parent="BackgroundGroup"]
+modulate = Color(1, 1, 1, 0.313726)
+offset_right = 1000.0
+offset_bottom = 1600.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_6r3gi")
+metadata/_edit_use_anchors_ = true
+
+[node name="Hero-art" type="Sprite2D" parent="BackgroundGroup"]
+position = Vector2(250, 400)
+texture = ExtResource("3_w81s5")
+
+[node name="Components" type="StaticBody2D" parent="."]
+
+[node name="DropTargetsBank" parent="Components" instance=ExtResource("4_a0lp0")]
+position = Vector2(76, 389)
+rotation = 0.825376
+
+[node name="Gates" type="CanvasGroup" parent="Components"]
+
+[node name="Gate" parent="Components/Gates" instance=ExtResource("5_oqg17")]
+position = Vector2(121, 205)
+
+[node name="Gate2" parent="Components/Gates" instance=ExtResource("5_oqg17")]
+position = Vector2(159, 205)
+
+[node name="Gate3" parent="Components/Gates" instance=ExtResource("5_oqg17")]
+position = Vector2(197, 205)
+
+[node name="WallCorners" type="CanvasGroup" parent="Components"]
+
+[node name="WallCorner" parent="Components/WallCorners" instance=ExtResource("6_56yyb")]
+position = Vector2(85, 170)
+rotation = 0.82269
+
+[node name="BumperTriangles" type="CanvasGroup" parent="Components"]
+
+[node name="BumperTriangle1" parent="Components/BumperTriangles" instance=ExtResource("7_g4yvn")]
+position = Vector2(125, 574)
+
+[node name="BumperTriangle2" parent="Components/BumperTriangles" instance=ExtResource("7_g4yvn")]
+position = Vector2(357, 575)
+scale = Vector2(-1, 1)
+
+[node name="BumperPills" type="CanvasGroup" parent="Components"]
+
+[node name="BumperPill" parent="Components/BumperPills" instance=ExtResource("9_2akld")]
+position = Vector2(266, 380)
+rotation = -0.683071
+
+[node name="BumperPill2" parent="Components/BumperPills" instance=ExtResource("9_2akld")]
+position = Vector2(411, 378)
+rotation = -2.40531
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+z_index = 100
+
+[node name="Tutorial-basic-box" type="Sprite2D" parent="Bounds"]
+modulate = Color(1, 1, 1, 0.941176)
+position = Vector2(250, 400)
+texture = ExtResource("10_j4sug")
+
+[node name="BottomBox" type="CollisionPolygon2D" parent="Bounds"]
+polygon = PackedVector2Array(258, 798, 210, 798, 203, 776, 195, 773, 179, 765, 159, 752, 120, 721, 83, 686, 58, 660, 39, 638, 23, 617, 11, 597, 6, 585, 4, 574, 4, 420, 4, 178, -4, 178, -4, 420, -4, 803, 114.49, 803, 240, 803, 373, 803, 474, 803, 501, 803, 501, 754, 501, 669, 501, 532, 501, 179, 495, 179, 495, 532, 495, 669, 495.14, 754.037, 474, 754.169, 474, 456, 474, 176, 471, 176, 471, 456, 471, 575, 470, 579, 468, 588, 462, 601, 448, 623, 429, 646, 415, 662, 397, 682, 374, 704, 350, 725, 331, 741, 310, 756, 289, 769, 268, 776)
+
+[node name="Ceiling" type="CollisionPolygon2D" parent="Bounds"]
+polygon = PackedVector2Array(4, 180, 8, 157, 17, 136, 27, 121, 37, 111, 49, 101, 60, 93, 91, 76, 127, 62, 168, 53, 199, 48, 226, 46, 251, 46, 285, 47, 313, 50, 342, 55, 366, 61, 391, 69, 407, 75, 416.787, 79.8935, 429, 86, 435.728, 90.4855, 444, 96, 457, 106, 464, 112, 471, 119, 474, 123, 481, 132, 490, 151, 495, 167, 495, 182, 501, 182, 501, 167, 501, -2, 321.909, -3.41573, 139.939, -4.85423, -4, -5, -4, 180)
+
+[node name="FlipperGuides" type="StaticBody2D" parent="."]
+
+[node name="Flipper-guides" type="Sprite2D" parent="FlipperGuides"]
+position = Vector2(240, 614)
+texture = ExtResource("11_y88ts")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlipperGuides"]
+position = Vector2(-537.7, 16.3)
+polygon = PackedVector2Array(596, 497, 596, 577, 702, 684, 702, 689, 697, 694, 691, 694, 581, 583, 581, 497, 584, 493, 593, 493)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="FlipperGuides"]
+position = Vector2(-537.7, 16.3)
+polygon = PackedVector2Array(848, 683, 847, 688, 854, 694, 859, 694, 969, 583, 968, 497, 965, 494, 957, 494, 954, 497, 954, 578)
+
+[node name="FlipperLeft" parent="." instance=ExtResource("12_gxj7l")]
+position = Vector2(170, 712)
+rotation = 0.698132
+max_angle = -45
+up_time = 0.043
+
+[node name="FlipperRight" parent="." instance=ExtResource("12_gxj7l")]
+position = Vector2(305, 713)
+rotation = 2.44346
+
+[node name="Drainage" type="Area2D" parent="."]
+
+[node name="DrainageCollisionBox" type="CollisionShape2D" parent="Drainage"]
+position = Vector2(236, 798)
+shape = SubResource("RectangleShape2D_14pf7")
+
+[connection signal="body_entered" from="Drainage" to="." method="_on_drainage_body_entered"]

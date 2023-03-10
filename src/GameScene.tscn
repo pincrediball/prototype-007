@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://xt6gmnaf4m41"]
+
+[ext_resource type="Script" path="res://GameScene.gd" id="1_uhp21"]
+[ext_resource type="PackedScene" uid="uid://cyjdl4c5v2xvq" path="res://Toolbox.tscn" id="2_u8c11"]
+[ext_resource type="PackedScene" uid="uid://dbsri2ld7ofa1" path="res://TutorialMachine.tscn" id="3_g6md3"]
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_uhp21")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 1072.0
+offset_top = 185.0
+offset_right = 1296.0
+offset_bottom = 654.0
+
+[node name="Button" type="Button" parent="PanelContainer"]
+layout_mode = 2
+text = "Plunge new ball"
+
+[node name="Toolbox" parent="." instance=ExtResource("2_u8c11")]
+custom_minimum_size = Vector2(400, 800)
+offset_left = 10.0
+offset_top = 80.0
+offset_right = 410.0
+offset_bottom = 880.0
+
+[node name="TutorialMachine" parent="." instance=ExtResource("3_g6md3")]
+position = Vector2(508, 79)
+
+[connection signal="button_up" from="PanelContainer/Button" to="." method="_on_button_button_up"]
