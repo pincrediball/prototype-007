@@ -25,6 +25,12 @@ Here's the status after [Day 24](https://www.pincrediball.com/devlog#post-2023-0
 
 ![animated gif of the prototype](pincrediball-prototype-007-part2.gif)
 
+### Day 26 version of Prototype 007
+
+Here's the status after [Day 26](https://www.pincrediball.com/devlog#post-2023-03-10):
+
+![animated gif of the prototype](pincrediball-prototype-007-part3.gif)
+
 ### Further development
 
 The code in this prototype is promising and useful.

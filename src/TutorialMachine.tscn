@@ -16,7 +16,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14pf7"]
 size = Vector2(106, 10)
 
-[node name="TutorialMachine" type="Node2D"]
+[node name="TutorialMachine" type="PanelContainer"]
 script = ExtResource("1_tnjrv")
 
 [node name="BackgroundGroup" type="CanvasGroup" parent="."]

@@ -1,6 +1,10 @@
-extends Node2D
+extends PanelContainer
 
 var ballScene = preload("res://Ball.tscn")
+
+var componentScenesMap: Dictionary = {
+	"bumperCircle" = preload("res://BumperCircular.tscn")
+}
 
 const ballStartX = 480
 const ballStartY = 730
@@ -23,3 +27,11 @@ func _on_drainage_body_entered(body):
 	if body.is_in_group("isBall"):
 		var ball = body as RigidBody2D
 		ball.queue_free()
+
+func _can_drop_data(_at_position, data):
+	return data is Dictionary and data["isToolboxItem"]
+
+func _drop_data(at_position, data):
+	var component = componentScenesMap[data.key].instantiate() as Node
+	component.position = at_position
+	add_child(component)

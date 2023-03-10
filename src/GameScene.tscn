@@ -25,6 +25,9 @@ offset_right = 410.0
 offset_bottom = 880.0
 
 [node name="TutorialMachine" parent="." instance=ExtResource("3_g6md3")]
-position = Vector2(508, 79)
+offset_left = 508.0
+offset_top = 79.0
+offset_right = 508.0
+offset_bottom = 79.0
 
 [connection signal="button_up" from="PanelContainer/Button" to="." method="_on_button_button_up"]
